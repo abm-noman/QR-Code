@@ -1,14 +1,8 @@
-document.getElementById('generate-btn').addEventListener('click', function() {
-    var qr;
-    var text = document.getElementById('text-input').value;
-    if (!text) {
-        alert('Please enter text or URL');
-        return;
-    }
+let qrcode = document.getElementById("qrcode");
+let qrImg = document.getElementById("qrImg");
+let textInput = document.getElementById("text-input");
 
-    qr = new QRious({
-        element: document.getElementById('qrcode'),
-        value: text,
-        size: 200
-    });
-});
+function generateQR() {
+    document.getElementById("text").innerHTML = "Here is Your QR Code";
+    qrImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + textInput.value;
+}
